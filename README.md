@@ -9,7 +9,7 @@
 You can take und upload screenshots with the example application.
 You can specify the size of the screenshot and add tags. Multiple tags are separated with `;` and note that some special characters are filtered. 
 
-![](screenshot.png)
+![screenshot](/screenshot.PNG)
 
 
 
