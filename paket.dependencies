@@ -22,4 +22,4 @@ nuget Adaptify.MSBuild                      ~> 1.1.0
 
 nuget Aardium                               ~> 2.0.10-prerelease0007
 
-nuget Screenshotr.Client                    ~> 1.1.0
+nuget Screenshotr.Client                    ~> 1.2.0
