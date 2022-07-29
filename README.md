@@ -3,10 +3,10 @@
 With the Aardvark.UI.Screenshotr you can take screenshots from your Aardvark.Media application and upload it to a screenshotr server.
 
 The first time you take a screenshot your are asked to enter the credentials (url and api-key) for the server-connection. 
-<img src="images/credentials.JPG" width="500">
+<br/><img src="images/credentials.JPG" width="500">
 
 Then you can enter the image size and specify some tags. Multiple tags are separated with a semicolon and some special characters are filtered.
-<img src="images/screenshotSettings.JPG" width="500">
+<br/><img src="images/screenshotSettings.JPG" width="500">
 
 ---
 
@@ -81,7 +81,7 @@ Then you can enter the image size and specify some tags. Multiple tags are separ
 
 * **I don't have an Aardvark.Media application. Can I use the Screenshotr service nevertheless?**
     
-    Yes, if you know how to take a screenshot from your application. The Screenshotr service requires the image as a byte[]. Take a look at the upload function in the Screenshot.fs of the Aardvark.UI.Screenshotr project. 
+    Yes, if you know how to take a screenshot from your application. The Screenshotr service requires the image as a byte[]. Take a look at the upload function in the Screenshot.fs of the Aardvark.UI.Screenshotr project. You don't need this nuget package, install the [Screenshotr package](https://www.nuget.org/packages/Screenshotr.Client) directly.
 
 * **I want to use the Screenshotr.UI and don't want to write some default tags everytime. How do I do that?**
 
