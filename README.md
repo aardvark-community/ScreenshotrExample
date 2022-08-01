@@ -19,7 +19,7 @@ Then you can specify an image size and some tags. Multiple tags are separated wi
     * **Step 1:** Add a `ScreenshotrMessage` to your `Message`
     ```fsharp
     type Message =
-        | ScreenshoterMessage of ScreenshotrMessage
+        | ScreenshotrMessage of ScreenshotrMessage
     ```
 
     * **Step 2:** Add a `ScreenshotrModel` to your `Model`
@@ -29,18 +29,57 @@ Then you can specify an image size and some tags. Multiple tags are separated wi
             screenshotr : ScreenshotrModel 
         }
     ```
-    * **Step 3:** Initialize the `ScreenshotrModel` with your Aardvark.Media application url. You find the url in your `Program.fs`. If you don't want to copy&paste it, take a look into the code how to pass it from the `Program.fs` to the initialization. 
+    * **Step 3:** Initialize the `ScreenshotrModel` with your Aardvark.Media application url.
+
     ```fsharp
-    let initial = 
+    let initial (url : string) = 
         { 
             screenshotr = ScreenshotrModel.Default url 
         }
     ```
+    How to pass the Aardvark.Media application url from the `Program.fs` to the initialization:
+
+    Updated app function in `App.fs`
+    ```fsharp
+    let app (myUrl : string) =
+        {
+            initial = initial myUrl
+            update = update
+            view = view
+            threads = fun m -> m.cameraState |> FreeFlyController.threads |> ThreadPool.map CameraMessage
+            unpersist = Unpersist.instance
+        }
+    ```
+
+    Minimal `Program.fs` example: 
+    ```fsharp
+    let main args =
+
+        Aardvark.Init()
+        Aardium.init()
+
+        let app = new OpenGlApplication()
+
+        let port = 1337 
+        let mediaUrl = sprintf "http://localhost:%i/" port
+        
+        WebPart.startServerLocalhost port [
+            MutableApp.toWebPart' app.Runtime false (App.start (App.app mediaUrl))
+        ] |> ignore
+        
+        Aardium.run {
+            title "Screenshotr Example"
+            width 1024
+            height 768
+            url mediaUrl
+        }
+    ```
+
     * **Step 4:** add the `ScreenshotrMessage` to your update function
     ```fsharp
      let update (m : Model) (msg : Message) =
         match msg with
-        | ScreenshoterMessage msg -> { m with screenshotr = ScreenshotrUpdate.update msg m.screenshotr }
+        | ScreenshotrMessage msg -> { m with screenshotr = ScreenshotrUpdate.update msg m.screenshotr }
     ```
     * **Step 5:** add some key (or button) bindings in your update function
     ```fsharp
@@ -50,10 +89,10 @@ Then you can specify an image size and some tags. Multiple tags are separated wi
             match k with
             | Keys.F8 -> { m with screenshotr = m.screenshotr |> ScreenshotrUpdate.update ToggleScreenshotUi }
     ```
-    * **Step 6:** add the screenshotr UI 
+    * **Step 6:** add the screenshotr UI to your UI
     ```fsharp
     body [] [
-        ScreenshotrView.screenshotrUI m.screenshotr |> UI.map ScreenshoterMessage
+        ScreenshotrView.screenshotrUI m.screenshotr |> UI.map ScreenshotrMessage
     ]
     ```
 
@@ -81,9 +120,9 @@ Then you can specify an image size and some tags. Multiple tags are separated wi
 
 * **I don't have an Aardvark.Media application. Can I use the Screenshotr service nevertheless?**
     
-    Yes, if you know how to take a screenshot from your application. The Screenshotr service requires the image as a byte[]. Take a look at the upload function in the Screenshot.fs of the Aardvark.UI.Screenshotr project. You don't need this nuget package, install the [Screenshotr package](https://www.nuget.org/packages/Screenshotr.Client) directly.
+    Yes, if you know how to take a screenshot from your application. The Screenshotr service requires the image as a byte[]. Take a look at the [Screenshotr repository](https://github.com/aardvark-community/screenshotr).
 
-* **I want to use the Screenshotr.UI and don't want to write some default tags everytime. How do I do that?**
+* **I want to use the Screenshotr.UI and don't want to manually add some default tags everytime. How do I do that?**
 
     Yes, just change the code from Step 3 to this:
      ```fsharp
