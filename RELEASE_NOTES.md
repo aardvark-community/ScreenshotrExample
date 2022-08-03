@@ -1,3 +1,6 @@
+### 1.0.0
+* initial release
+
 ### 0.9.1
 * build script
 
