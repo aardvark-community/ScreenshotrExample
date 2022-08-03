@@ -12,7 +12,7 @@ Then you can specify an image size and some tags. Multiple tags are separated wi
 
 ## How to make it work with my Aardvark.Media application
 
-1. Add the [Aardvark.UI.Screenshotr nuget package](https://www.nuget.org/) to your project. (Note: its not existing yet!)
+1. Add the [Aardvark.UI.Screenshotr nuget package](https://www.nuget.org/packages/Aardvark.UI.Screenshotr) to your project. 
 
 2. Add these code-snippets to your program:
 
