@@ -1,3 +1,7 @@
+### 1.0.2
+* locateable error output
+* replaced V2i with Screenshotr.ImgSize in model
+
 ### 1.0.1
 * changed .net6 to .netstandard2.0
 
