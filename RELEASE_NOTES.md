@@ -1,3 +1,6 @@
+### 1.0.4
+* clean up fix
+
 ### 1.0.3
 * fix potential invalid cast problem with net472 (attempt 1)
 
