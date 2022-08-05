@@ -1,3 +1,6 @@
+### 1.0.3
+* fix potential invalid cast problem with net472 (attempt 1)
+
 ### 1.0.2
 * locateable error output
 * replaced V2i with Screenshotr.ImgSize in model
