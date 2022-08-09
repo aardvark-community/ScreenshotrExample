@@ -1,3 +1,6 @@
+### 1.0.5
+* added toggle button to mark a screenshot if it is allowed to be used for PR 
+
 ### 1.0.4
 * clean up fix
 
