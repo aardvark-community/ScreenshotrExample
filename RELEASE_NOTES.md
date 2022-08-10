@@ -1,3 +1,7 @@
+### 1.0.6
+* added input fields for caption and credentials
+* refactored UI
+
 ### 1.0.5
 * added toggle button to mark a screenshot if it is allowed to be used for PR 
 
