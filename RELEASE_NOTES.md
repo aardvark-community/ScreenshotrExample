@@ -1,5 +1,8 @@
+### 1.0.7
+* refactored UI
+
 ### 1.0.6
-* added input fields for caption and credentials
+* added input fields for caption and credits
 * refactored UI
 
 ### 1.0.5
