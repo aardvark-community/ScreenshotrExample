@@ -1,4 +1,5 @@
-### 1.0.8
+### 1.1.0
+* added screenshot capturing with UI
 * updated to Aardvark.Rendering and Aardvark.Media 5.4
 
 ### 1.0.7
