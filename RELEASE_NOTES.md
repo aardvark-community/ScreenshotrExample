@@ -1,3 +1,6 @@
+### 1.0.8
+* updated to Aardvark.Rendering and Aardvark.Media 5.4
+
 ### 1.0.7
 * refactored UI
 
